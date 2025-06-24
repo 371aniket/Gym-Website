@@ -1,0 +1,73 @@
+.services {
+    background: var(--snd-bg-color);
+}
+
+.heading {
+    text-align: center;
+    font-size: 6.5rem;
+}
+
+.services-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, auto));
+    align-items: center;
+    gap: 2.3rem;
+    margin-top: 4.1rem;
+}
+
+.row {
+    background: var(--bg-color);
+    border-radius: 27px;
+    border: 1px solid transparent;
+    box-shadow: 0 0 5px var(--main-color);
+    padding: 20px;
+    transition: all 0.5s ease;
+}
+
+.row img {
+    height: auto;
+    width: 100%;
+    border-radius: 27px;
+    margin-bottom: 1.4rem;
+}
+
+.row h4 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.row:hover {
+    border: 1px solid var(--main-color);
+    transform: translate(-5px) scale(1.04);
+    cursor: pointer;
+}
+
+.service-details {
+    margin-top: 1.2rem;
+    background: rgba(0, 0, 0, 0.7);
+    color: var(--text-color);
+    border-radius: 0.7rem;
+    padding: 1.2rem 1.5rem;
+    font-size: 1.5rem;
+    box-shadow: 0 0 8px var(--main-color);
+    border: 1px solid var(--main-color);
+}
+
+@media(max-width:991px) {
+    .services {
+        padding: 8rem 3% 2rem;
+    }
+}
+
+@media(max-width:786px) {
+    .services h2 {
+        font-size: 4.5rem;
+    }
+}
+
+.Services,
+.Services * {
+    font-family: 'Roboto Mono', monospace;
+}
