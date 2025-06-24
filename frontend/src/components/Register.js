@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../style.css';
+import { API_BASE_URL } from '../apiConfig';
 
 const Register = () => {
     const [fullName, setFullName] = useState('');
@@ -10,10 +11,32 @@ const Register = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // TODO: Call backend API for registration
-        alert(`Registration attempted for ${fullName}, ${phone}, ${age}, ${weight}, ${height}, ${email}`);
+        try {
+            const response = await fetch(`${API_BASE_URL}/api/auth/register`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    fullName,
+                    phone,
+                    age,
+                    weight,
+                    height,
+                    email,
+                    password
+                })
+            });
+            const data = await response.json();
+            if (response.ok) {
+                alert('Registration successful! Please login.');
+                window.location.href = '/login';
+            } else {
+                alert(data.message || 'Registration failed');
+            }
+        } catch (error) {
+            alert('An error occurred. Please try again.');
+        }
     };
 
     return (

@@ -1,0 +1,1 @@
+export const API_BASE_URL = "https://gym-website-fob2.onrender.com"; 
